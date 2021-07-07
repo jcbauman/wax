@@ -9,13 +9,17 @@
 /* Begin PBXBuildFile section */
 		D0D7E33C269538840044BA35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D7E33B269538840044BA35 /* AppDelegate.swift */; };
 		D0D7E33E269538840044BA35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D7E33D269538840044BA35 /* SceneDelegate.swift */; };
-		D0D7E340269538840044BA35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D7E33F269538840044BA35 /* ViewController.swift */; };
 		D0D7E343269538840044BA35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0D7E341269538840044BA35 /* Main.storyboard */; };
 		D0D7E346269538840044BA35 /* Wax.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0D7E344269538840044BA35 /* Wax.xcdatamodeld */; };
 		D0D7E348269538870044BA35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0D7E347269538870044BA35 /* Assets.xcassets */; };
 		D0D7E34B269538870044BA35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0D7E349269538870044BA35 /* LaunchScreen.storyboard */; };
 		D0D7E356269538870044BA35 /* WaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D7E355269538870044BA35 /* WaxTests.swift */; };
 		D0D7E361269538870044BA35 /* WaxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D7E360269538870044BA35 /* WaxUITests.swift */; };
+		D0D7E37026953C480044BA35 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D7E36F26953C480044BA35 /* LoginViewController.swift */; };
+		D0D7E3732695425C0044BA35 /* SpotifyAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D7E3722695425C0044BA35 /* SpotifyAuthManager.swift */; };
+		D0D7E375269544FC0044BA35 /* SpotifyAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D7E374269544FC0044BA35 /* SpotifyAuthViewController.swift */; };
+		D0D7E377269552960044BA35 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D7E376269552960044BA35 /* AuthResponse.swift */; };
+		D0D7E37B2695572A0044BA35 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D7E37A2695572A0044BA35 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +43,6 @@
 		D0D7E338269538840044BA35 /* Wax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D7E33B269538840044BA35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0D7E33D269538840044BA35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D0D7E33F269538840044BA35 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D0D7E342269538840044BA35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D0D7E345269538840044BA35 /* Wax.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wax.xcdatamodel; sourceTree = "<group>"; };
 		D0D7E347269538870044BA35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +54,11 @@
 		D0D7E35C269538870044BA35 /* WaxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WaxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D7E360269538870044BA35 /* WaxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaxUITests.swift; sourceTree = "<group>"; };
 		D0D7E362269538870044BA35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0D7E36F26953C480044BA35 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D0D7E3722695425C0044BA35 /* SpotifyAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAuthManager.swift; sourceTree = "<group>"; };
+		D0D7E374269544FC0044BA35 /* SpotifyAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAuthViewController.swift; sourceTree = "<group>"; };
+		D0D7E376269552960044BA35 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		D0D7E37A2695572A0044BA35 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +111,8 @@
 			children = (
 				D0D7E33B269538840044BA35 /* AppDelegate.swift */,
 				D0D7E33D269538840044BA35 /* SceneDelegate.swift */,
-				D0D7E33F269538840044BA35 /* ViewController.swift */,
+				D0D7E3712695423B0044BA35 /* Managers */,
+				D0D7E36E26953C1A0044BA35 /* View Controllers */,
 				D0D7E341269538840044BA35 /* Main.storyboard */,
 				D0D7E347269538870044BA35 /* Assets.xcassets */,
 				D0D7E349269538870044BA35 /* LaunchScreen.storyboard */,
@@ -129,6 +138,25 @@
 				D0D7E362269538870044BA35 /* Info.plist */,
 			);
 			path = WaxUITests;
+			sourceTree = "<group>";
+		};
+		D0D7E36E26953C1A0044BA35 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D0D7E36F26953C480044BA35 /* LoginViewController.swift */,
+				D0D7E374269544FC0044BA35 /* SpotifyAuthViewController.swift */,
+				D0D7E37A2695572A0044BA35 /* HomeViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D0D7E3712695423B0044BA35 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				D0D7E3722695425C0044BA35 /* SpotifyAuthManager.swift */,
+				D0D7E376269552960044BA35 /* AuthResponse.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,8 +289,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0D7E375269544FC0044BA35 /* SpotifyAuthViewController.swift in Sources */,
+				D0D7E37026953C480044BA35 /* LoginViewController.swift in Sources */,
+				D0D7E3732695425C0044BA35 /* SpotifyAuthManager.swift in Sources */,
+				D0D7E37B2695572A0044BA35 /* HomeViewController.swift in Sources */,
 				D0D7E346269538840044BA35 /* Wax.xcdatamodeld in Sources */,
-				D0D7E340269538840044BA35 /* ViewController.swift in Sources */,
+				D0D7E377269552960044BA35 /* AuthResponse.swift in Sources */,
 				D0D7E33C269538840044BA35 /* AppDelegate.swift in Sources */,
 				D0D7E33E269538840044BA35 /* SceneDelegate.swift in Sources */,
 			);
@@ -443,6 +475,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JZZA5N7MP3;
 				INFOPLIST_FILE = Wax/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -462,6 +495,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JZZA5N7MP3;
 				INFOPLIST_FILE = Wax/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
