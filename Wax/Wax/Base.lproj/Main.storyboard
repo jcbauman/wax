@@ -58,7 +58,7 @@
             </objects>
             <point key="canvasLocation" x="-1260.8695652173915" y="93.75"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Marketplace-->
         <scene sceneID="CxJ-wA-OpJ">
             <objects>
                 <viewController id="7Eo-Pb-UzJ" customClass="HomeViewController" customModule="Wax" customModuleProvider="target" sceneMemberID="viewController">
@@ -66,8 +66,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Welcome to Wax yo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyi-Qk-Jrc">
-                                <rect key="frame" x="141" y="438" width="150" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Wax yo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyi-Qk-Jrc">
+                                <rect key="frame" x="132" y="418" width="150" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -80,10 +80,11 @@
                             <constraint firstItem="hyi-Qk-Jrc" firstAttribute="centerX" secondItem="LIY-HZ-XUZ" secondAttribute="centerX" id="hSG-7D-fge"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Marketplace" id="YhT-JU-RKd"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bxs-Wx-7cR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="84" y="126"/>
+            <point key="canvasLocation" x="1813.0434782608697" y="93.75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yEV-l7-0OW">
@@ -102,6 +103,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cPk-4x-wbv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2168.1159420289855" y="93.75"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="GKF-eo-roS">
+            <objects>
+                <tabBarController storyboardIdentifier="tabBarController" automaticallyAdjustsScrollViewInsets="NO" id="Oq0-tC-MIt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MEa-Yp-rzn">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="7Eo-Pb-UzJ" kind="relationship" relationship="viewControllers" id="sOc-gv-CjK"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DOt-Z1-7XS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="905.79710144927549" y="93.75"/>
         </scene>
     </scenes>
     <resources>

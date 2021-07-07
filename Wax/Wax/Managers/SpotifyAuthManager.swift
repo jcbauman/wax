@@ -20,7 +20,10 @@ final class SpotifyAuthManager{
     }
     
     public var signInUrl: URL? {
-        let scopes = "user-read-private"
+        
+        //add more scopes here as necessary
+        let scopes = "user-read-private%20streaming%20user-read-recently-played%20user-library-read"
+        
         let redirectURI = Constants.redirectURI
         let base = "https://accounts.spotify.com/authorize?response_type=code"
         let string = "\(base)&client_id=\(Constants.clientId)&scope=\(scopes)&redirect_uri=\(redirectURI)&show_dialog=TRUE"
@@ -40,7 +43,7 @@ final class SpotifyAuthManager{
     }
     
     private var tokenExpirationDate: Date? {
-        return UserDefaults.standard.string(forKey: "expiration_date") as? Date
+        return (UserDefaults.standard.string(forKey: "expirationDate") as! Date)
     }
      
     private var shouldRefreshToken: Bool? {
@@ -74,7 +77,7 @@ final class SpotifyAuthManager{
         let base64String = data?.base64EncodedString() ?? ""
         
         request.setValue("Basic \(base64String)", forHTTPHeaderField: "Authorization")
-        URLSession.shared.dataTask(with: request){[weak self] data, _, error in
+        let task = URLSession.shared.dataTask(with: request){[weak self] data, _, error in
             guard let data = data, error == nil else {
                 completionHandler(false)
                 return
@@ -83,8 +86,7 @@ final class SpotifyAuthManager{
             do{
                 let result = try JSONDecoder().decode(AuthResponse.self, from: data)
                 self?.cacheToken(result: result)
-                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                print("SUCCESS, \(json)")
+                print("SUCCESS, token = \(SpotifyAuthManager.shared.accessToken!)")
                 completionHandler(true)
                 
             } catch{
@@ -92,18 +94,69 @@ final class SpotifyAuthManager{
                 completionHandler(false)
             }
         }
+        task.resume()
         
     }
     
     public func cacheToken(result:AuthResponse){
         UserDefaults.standard.setValue(result.access_token, forKey: "access_token")
-        UserDefaults.standard.setValue(result.refresh_token, forKey: "refresh_token")
-        UserDefaults.standard.setValue(Date().addingTimeInterval(TimeInterval(result.expires_in)), forKey: "expiration_date")
+        if let refresh_token = result.refresh_token{
+            UserDefaults.standard.setValue(refresh_token, forKey: "refresh_token")
+        }
+        UserDefaults.standard.setValue(Date().addingTimeInterval(TimeInterval(result.expires_in)), forKey: "expirationDate")
         
         
     }
     
-    public func refreshAccessToken(){
+    public func refreshAccessToken(completionHandler: @escaping (Bool) -> Void){
+        guard shouldRefreshToken! else {
+            completionHandler(true)
+            return
+        }
+        guard let refreshToken = self.refreshToken else {
+            return
+        }
+        
+        //refresh token
+        
+        guard let url = URL(string: Constants.tokenAPIUrl) else {
+            return
+        }
+        
+        var components = URLComponents()
+        components.queryItems = [
+        URLQueryItem(name: "grant_type", value: "refresh_token"),
+            URLQueryItem(name: "refresh_token", value: refreshToken),
+        ]
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/x-www-form-urlencoded ", forHTTPHeaderField: "Content-Type")
+        request.httpBody = components.query?.data(using: .utf8)
+        
+        let basicToken = Constants.clientId+":"+Constants.clientS
+        let data = basicToken.data(using: .utf8)
+        let base64String = data?.base64EncodedString() ?? ""
+        
+        request.setValue("Basic \(base64String)", forHTTPHeaderField: "Authorization")
+        let task = URLSession.shared.dataTask(with: request){[weak self] data, _, error in
+            guard let data = data, error == nil else {
+                completionHandler(false)
+                return
+            }
+            
+            do{
+                let result = try JSONDecoder().decode(AuthResponse.self, from: data)
+                self?.cacheToken(result: result)
+                print("SUCCESS refreshing token, token = \(SpotifyAuthManager.shared.accessToken!)")
+                completionHandler(true)
+                
+            } catch{
+                print(error.localizedDescription)
+                completionHandler(false)
+            }
+        }
+        task.resume()
         
     }
 }
